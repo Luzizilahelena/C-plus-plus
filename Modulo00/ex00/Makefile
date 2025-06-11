@@ -1,24 +1,31 @@
 NAME = megaphone
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+COMP = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
+RM = rm -rf
 
-SRC = $(wildcard *.cpp)
+VERDE	:= \033[0;32m
+AMARELO	:= \033[0;33m
+VERMELHO := \033[0;31m
+
+SRC = megaphone.cpp
+
 OBJ = $(SRC:.cpp=.o)
 
 all:	$(NAME)
+	@echo "$(VERDE)Compilação completa."
+	@echo "$(VERMELHO)Muito bem cadete😁️"
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(COMP) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(COMP) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	/bin/rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	$(RM) $(NAME)
+	@echo "$(VERMELHO)Objectos e executável limpos com sucesso💯️"
 
 re: fclean all
-
-.PHONY: all clean fclean re

@@ -1,8 +1,11 @@
 NAME = harl
-COMP = c++
+COMP = c++ -std=c++98
 FLAGS = -Wall -Wextra -Werror
-
 RM = rm -rf
+
+VERDE	:= \033[0;32m
+AMARELO	:= \033[0;33m
+VERMELHO := \033[0;31m
 
 SRC =	main.cpp \
 	Harl.cpp
@@ -10,6 +13,7 @@ SRC =	main.cpp \
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
+	@echo "$(VERMELHO)Complicação feita com sucesso"
 
 %.o: %.cpp
 	$(COMP) $(FLAGS) -c $< -o $@
@@ -22,6 +26,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	@echo "$(VERMELHO)Objectos e executável limpos"
 
 re: fclean all
 

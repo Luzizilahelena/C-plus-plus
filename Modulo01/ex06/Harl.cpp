@@ -47,9 +47,7 @@ void	Harl::complain(std::string level)
 					break ;
 				default:
 					std::cerr << "Error! \"" << level << "\" is not a valid level" << std::endl;
-					exit(1);
 			}
-			exit(0);
 		}
 	}
 }

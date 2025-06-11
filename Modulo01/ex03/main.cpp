@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	if (ac != 1)
 	{
 		std::cerr << "Invalid! Run using only ./weapon" << std::endl;
-		exit(1);
+		//exit(1);
 	}
 	Weapon club = Weapon("crude spiked club");
 	HumanA bob("Bob", club);

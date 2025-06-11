@@ -3,6 +3,7 @@
 
 int	main(int ac, char **av)
 {
+	(void)av;
 	if (ac != 1)
 	{
 		std::cerr << "Não recebe nenhum argumento" << std::endl;

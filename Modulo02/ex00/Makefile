@@ -16,12 +16,18 @@ COMP = c++ -std=c++98
 FLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
+VERDE	:= \033[0;32m
+AZUL	:= \033[0;34m
+AMARELO := \033[0;33m
+NEGRITO	:= \033[1m
+
 SRC =	main.cpp \
 		Fixed.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
+	@echo "$(NEGRITO)Compilação concluída"
 
 %.o: %.cpp
 	$(COMP) $(FLAGS) -c $< -o $@
@@ -34,6 +40,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	@echo "$(AZUL)Tudo excluído"
 
 re:	fclean all
 

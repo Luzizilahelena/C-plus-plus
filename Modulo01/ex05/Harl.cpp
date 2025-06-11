@@ -24,10 +24,7 @@ void	Harl::complain(std::string level)
 	while (++i < 4)
 	{
 		if (level.compare(tab[i]) == 0)
-		{
 			(this->*ft_ptr_tab[i])();
-			exit(0);
-		}
 	}
 }
 

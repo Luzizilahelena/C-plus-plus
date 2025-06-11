@@ -1,8 +1,11 @@
 NAME = harlFilter
-CXX = c++
+COMP = c++ -std=c++98
 FLAGS = -Wall -Wextra -Werror
-
 RM = rm -rf
+
+VERDE	:= \033[0;32m
+VERMELHO := \033[0;31m
+AMARELO	:= \033[0;33m
 
 SRC =	main.cpp \
 	Harl.cpp
@@ -10,18 +13,20 @@ SRC =	main.cpp \
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
+	@echo "$(VERDE)Compilacao feita com êxito"
 
 %.o: %.cpp
-	$(CXX) $(FLAGS) -c $< -o $@
+	$(COMP) $(FLAGS) -c $< -o $@
 	
 $(NAME): $(OBJ)
-	$(CXX) $(FLAGS) $(OBJ) -o $(NAME)
+	$(COMP) $(FLAGS) $(OBJ) -o $(NAME)
 	
 clean:
 	$(RM) $(OBJ)
 	
 fclean: clean
 	$(RM) $(NAME)
+	@echo "$(AMARELO)Objectos e executável limpos"
 	
 re: fclean all
 
