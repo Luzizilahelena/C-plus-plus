@@ -7,7 +7,7 @@ class	HumanB
 {
 	private:
 		std::string	nome;
-		Weapon		*arm;
+		Weapon		*arma;
 	public:
 		HumanB(std::string name);
 		void	attack(void) const;

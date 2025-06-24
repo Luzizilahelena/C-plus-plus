@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	(void)av;
 	if (ac != 1)
 	{
-		std::cerr << "Invalid! Run using only ./weapon" << std::endl;
+		std::cerr << "Invalid! Use: ./weapon" << std::endl;
 		//exit(1);
 	}
 	Weapon club = Weapon("crude spiked club");

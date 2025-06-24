@@ -17,7 +17,7 @@ int	main(int ac, char *av[])
 	(void)av;
 	if (ac != 1)
 	{
-		std::cerr << "Error! Run the program using only ./BraiiiiiiinnnzzzZ" << std::endl;
+		std::cerr << "Error! Use: ./BraiiiiiiinnnzzzZ" << std::endl;
 		return (1);
 	}
 	

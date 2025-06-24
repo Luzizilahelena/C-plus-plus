@@ -13,7 +13,7 @@
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name): nome(name), arm(NULL) {}
+HumanB::HumanB(std::string name): nome(name), arma(NULL) {}
 
 void	HumanB::setWeapon(Weapon &arm)
 {

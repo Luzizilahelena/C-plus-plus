@@ -1,4 +1,4 @@
-NAME = Moarbrainz!
+NAME = brainz!
 COMP = c++ -std=c++98
 FLAGS = -Wall -Wextra  -Werror
 RM = rm -rf
