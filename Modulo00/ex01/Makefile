@@ -1,5 +1,5 @@
 NAME = PhoneBook
-COMP = c++ -std=c++98
+COMP = c++
 FLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 

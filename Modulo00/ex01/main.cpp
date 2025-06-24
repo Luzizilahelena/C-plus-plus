@@ -14,7 +14,11 @@ int	main(int ac, char **av)
 	while(1)
 	{
 		std::cout << "Insira um comando: " << std::endl;
-		std::getline(std::cin, linha);
+		if (!std::getline(std::cin, linha))
+		{
+			std::cout << "Ctrl+D detectado" << std::endl;
+			break;
+		}
 		if (linha.compare("ADD") == 0)
 		{
 			Contact	num;
