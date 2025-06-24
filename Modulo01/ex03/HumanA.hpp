@@ -19,7 +19,7 @@ class	HumanA
 {
 	private:
 		std::string	nome;
-		Weapon		&arm;
+		Weapon		&arma;
 	public:
 		HumanA(std::string name, Weapon &arm);
 		void	attack(void);

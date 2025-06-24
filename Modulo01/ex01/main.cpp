@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		std::cerr << "Error! Use: <./moarBrainz\\!> <name>" << std::endl;
+		std::cerr << "Error! Use: <./brainz\\!> <name>" << std::endl;
 		return (1);
 	}
 	i = -1;
