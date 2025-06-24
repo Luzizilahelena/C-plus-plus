@@ -16,14 +16,14 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << "Error! Run using only ./ex05 <level>" << std::endl;
+		std::cerr << "Error! Use ./ex05 <level>" << std::endl;
 		return (1);
 	}
 	Harl	harl;
 
 	harl.complain(*(av + 1));
-
-	std::cerr << "Error! \"" << *(av + 1) << "\" is not a valid level" << std::endl;
+	
+	std::cerr << "Error! \"" << *(av + 1) << "\" Não é um nível válido" << std::endl;
 
 	return (1);
 }

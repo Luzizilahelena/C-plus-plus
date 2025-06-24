@@ -13,7 +13,7 @@
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name): name(name), arm(NULL) {}
+HumanB::HumanB(std::string name): nome(name), arm(NULL) {}
 
 void	HumanB::setWeapon(Weapon &arm)
 {
@@ -23,7 +23,7 @@ void	HumanB::setWeapon(Weapon &arm)
 void	HumanB::attack(void) const
 {
 	if (arm)
-		std::cout << name << " attacks with their " << arm->getType() << std::endl;
+		std::cout << nome << " ataca com seus " << arm->getType() << std::endl;
 	else
-		std::cout << name << " has no weapon to attack" << std::endl;
+		std::cout << nome << " Não tem arma para atacar" << std::endl;
 }

@@ -17,10 +17,10 @@ void	open_replace_file(std::ofstream &replace_file, char *filename)
 	std::string	replace_filename;
 	
 	replace_filename = std::string(filename) + ".replace";
-	replace_file.open(replace_filename);
+	replace_file.open(replace_filename.c_str());
 	if (!replace_file.is_open())
 	{
-		std::cerr << "Error: Failed to open " << replace_filename << std::endl;
+		std::cerr << "Error: Falha ao abrir " << replace_filename << std::endl;
 		exit(1);
 	}
 }

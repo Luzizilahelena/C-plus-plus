@@ -29,19 +29,10 @@ void	Harl::complain(std::string level)
 			{
 				case 0:
 					(this->*ft_ptr_tab[0])();
-					(this->*ft_ptr_tab[1])();
-					(this->*ft_ptr_tab[2])();
-					(this->*ft_ptr_tab[3])();
-					break ;
 				case 1:
 					(this->*ft_ptr_tab[1])();
-					(this->*ft_ptr_tab[2])();
-					(this->*ft_ptr_tab[3])();
-					break ;
 				case 2:
 					(this->*ft_ptr_tab[2])();
-					(this->*ft_ptr_tab[3])();
-					break ;
 				case 3:
 					(this->*ft_ptr_tab[3])();
 					break ;

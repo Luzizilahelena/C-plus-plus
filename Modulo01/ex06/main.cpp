@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << "Error! Run using only ./ex05 <level>" << std::endl;
+		std::cerr << "Error! use ./harl <level>" << std::endl;
 		return (1);
 	}
 	Harl	harl;

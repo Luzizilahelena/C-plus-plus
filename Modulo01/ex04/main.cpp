@@ -14,13 +14,13 @@
 
 int	main(int ac, char **av)
 {
-	std::ifstream	file;
+	std::ifstream	ficheiro;
 	std::ofstream	replace_file;
 
 	check_args(ac, av);
-	check_file(file, *(av + 1));
+	check_file(ficheiro, *(av + 1));
 	open_replace_file(replace_file, *(av + 1));
-	replace(file, replace_file, *(av + 2), *(av + 3));
+	replace(ficheiro, replace_file, *(av + 2), *(av + 3));
 
 	return (0);
 }

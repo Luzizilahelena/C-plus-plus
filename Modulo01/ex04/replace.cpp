@@ -12,36 +12,36 @@
 
 #include "ex04.hpp"
 
-void	replace(std::ifstream &file, std::ofstream &replace_file, char *s1, char *s2)
+void	replace(std::ifstream &ficheiro, std::ofstream &replace_file, char *s1, char *s2)
 {
 	size_t		line_pos;
-	size_t		tmp_pos;
-	std::string	line;
-	std::string	tmp;
+	size_t		temp_pos;
+	std::string	linha;
+	std::string	temp;
 	
-	while (std::getline(file, tmp))
+	while (std::getline(ficheiro, temp))
 	{
-		tmp.push_back('\n');
-		line.append(tmp);
+		temp.push_back('\n');
+		linha.append(temp);
 	}
-	if (line.find(s1) == std::string::npos)
+	if (linha.find(s1) == std::string::npos)
 	{
-		replace_file << line;
+		replace_file << linha;
 		return ;
 	}
 	while (1)
 	{
-		line_pos = line.find(s1);
+		line_pos = linha.find(s1);
 		if (line_pos == std::string::npos)
 			break ;
-		tmp = line.substr(0, (line_pos + strlen(s1)));
-		line.erase(0, tmp.size());
-		tmp_pos = tmp.find(s1);
-		tmp.erase(tmp_pos, strlen(s1));
-		tmp.insert(tmp_pos, s2);
-		replace_file << tmp;
+		temp = linha.substr(0, (line_pos + strlen(s1)));
+		linha.erase(0, temp.size());
+		temp_pos = temp.find(s1);
+		temp.erase(temp_pos, strlen(s1));
+		temp.insert(temp_pos, s2);
+		replace_file << temp;
 	}
-	replace_file << line;
-	file.close();
+	replace_file << linha;
+	ficheiro.close();
 	replace_file.close();
 }

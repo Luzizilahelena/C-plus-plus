@@ -15,13 +15,13 @@ SRC =	main.cpp	\
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
-	@echo "$(VERDE)Compilação completa"
 
 %.o: %.cpp
 	$(COMP) $(FLAGS) -c $< -o $@
 	
 $(NAME): $(OBJ)
 	$(COMP) $(FLAGS) $(OBJ) -o $@
+	@echo "$(VERDE)Compilação completa"
 	
 clean:
 	$(RM) $(OBJ)

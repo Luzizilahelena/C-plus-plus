@@ -27,13 +27,13 @@ SRC =	main.cpp \
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
-	@echo "$(NEGRITO)Compilação concluída"
 
 %.o: %.cpp
 	$(COMP) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(COMP) $(FLAGS) $(OBJ) -o $@
+	@echo "$(NEGRITO)Compilação concluída"
 
 clean:
 	$(RM) $(OBJ)

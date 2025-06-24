@@ -17,10 +17,11 @@
 #include <fstream>
 #include <cstring>
 #include <string>
+#include <cstdlib>
 
-void	replace(std::ifstream &file, std::ofstream &replace_file, char *s1, char *s2);
+void	replace(std::ifstream &ficheiro, std::ofstream &replace_file, char *s1, char *s2);
 void	open_replace_file(std::ofstream &replace_file, char *filename);
-void	check_file(std::ifstream &file, char *filename);
+void	check_file(std::ifstream &ficheiro, char *filename);
 void	check_args(int ac, char **av);
 
 #endif
