@@ -1,55 +1,130 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
+bool	alpha(const std::string& str)
+{
+	size_t	i = 0;
+	
+	if (str.empty())
+	{
+		return (false);
+	}
+	while (i < str.length())
+	{
+		if (!std::isalpha(static_cast<unsigned char>(str[i])))
+			return (false);
+		i++;
+	}
+	return true;
+}
+
+bool	digits(const std::string& str)
+{
+	size_t	i = 0;
+	
+	if (str.empty())
+	{
+		return (false);
+	}
+	while (i < str.length())
+	{
+		if (!std::isdigit(static_cast<unsigned char>(str[i])))
+			return (false);
+		i++;
+	}
+	return true;
+}
+
 void	ADD(Contact &nome)
 {
-	std::string	linha;
+	std::string linha;
+	bool	input_ok = false;
 
-	std::cout << "Insira o primeiro nome: " << std::endl;
-	std::getline(std::cin, linha);
-	if (std::all_of(linha.begin(), linha.end(), [](unsigned char c) { return std::isalpha(c); }))
-		nome.setter(linha, 1);
-	else
+	while (!input_ok)
 	{
-		std::cerr << "O primeiro nome deve ser composto apenas por letras" << std::endl;
-		return ;
+		std::cout << "Insira o primeiro nome: ";
+		if (!std::getline(std::cin, linha))
+		{
+			std::cerr << "\nEntrada interrompida." << std::endl;
+			return ;
+		}
+		if (alpha(linha))
+		{
+			nome.setter(linha, 1);
+			input_ok = true;
+		}
+		else
+			std::cerr << "ERRO: O primeiro nome deve ser composto apenas por letras." << std::endl;
 	}
-	std::cout << "Insira o último  nome: " << std::endl;
-	std::getline(std::cin, linha);
-	if (std::all_of(linha.begin(), linha.end(), [](unsigned char c) { return std::isalpha(c); }))
-		nome.setter(linha, 2);
-	else
+	input_ok = false;
+	while (!input_ok)
 	{
-		std::cerr << "O sobre_nome nome deve ser composto apenas por letras" << std::endl;
-		return ;
+		std::cout << "Insira o último nome: ";
+		if (!std::getline(std::cin, linha))
+		{
+			std::cerr << "\nEntrada interrompida." << std::endl;
+			return ;
+		}
+		if (alpha(linha))
+		{
+			nome.setter(linha, 2);
+			input_ok = true;
+		}
+		else
+			std::cerr << "ERRO: O último nome deve ser composto apenas por letras." << std::endl;
 	}
-	std::cout << "Insira o apelido: " << std::endl;
-	std::getline(std::cin, linha);
-	if (std::all_of(linha.begin(), linha.end(), [](unsigned char c) { return std::isalpha(c); }))
-		nome.setter(linha, 3);
-	else
+	input_ok = false;
+	while (!input_ok)
 	{
-		std::cerr << "O apelido nome deve ser composto apenas por letras" << std::endl;
-		return ;
+		std::cout << "Insira o apelido: ";
+		if (!std::getline(std::cin, linha))
+		{
+			std::cerr << "\nEntrada interrompida. Cancelando adição de contato." << std::endl;
+			return ;
+		}
+		if (alpha(linha))
+		{
+			nome.setter(linha, 3);
+			input_ok = true;
+		}
+		else
+			std::cerr << "ERRO: O apelido deve ser composto apenas por letras." << std::endl;
 	}
-	std::cout << "Insira o número de telefone: " << std::endl;
-	std::getline(std::cin, linha);
-	if (std::all_of(linha.begin(), linha.end(), [](unsigned char c) { return std::isdigit(c); }))
-		nome.setter(linha, 4);
-	else
+	input_ok = false;
+	while (!input_ok)
 	{
-		std::cerr << "O número de telefone deve ser composto apenas por números inteiros" << std::endl;
-		return ;
+		std::cout << "Insira o número de telefone: ";
+		if (!std::getline(std::cin, linha))
+		{
+			std::cerr << "\nEntrada interrompida. Cancelando adição de contato." << std::endl;
+			return ;
+		}
+		if (digits(linha))
+		{
+			nome.setter(linha, 4);
+			input_ok = true;
+        	}
+        	else
+			std::cerr << "ERRO: O número de telefone deve ser composto apenas por números inteiros." << std::endl;
 	}
-	std::cout << "Insira o segredo mais obscuro: " << std::endl;
-	std::getline(std::cin, linha);
-	if (std::all_of(linha.begin(), linha.end(), [](unsigned char c) { return std::isalpha(c); }))
-		nome.setter(linha, 5);
-	else
+	input_ok = false;
+	while (!input_ok)
 	{
-		std::cerr << "O segredo  nome deve ser composto apenas por letras" << std::endl;
-		return ;
+		std::cout << "Insira o segredo mais obscuro: ";
+		if (!std::getline(std::cin, linha))
+		{
+			std::cerr << "\nEntrada interrompida. Cancelando adição de contato." << std::endl;
+			return ;
+		}
+		if (alpha(linha))
+		{
+			nome.setter(linha, 5);
+			input_ok = true;
+		}
+        	else
+			std::cerr << "ERRO: O segredo deve ser composto apenas por letras." << std::endl;
 	}
+	std::cout << "Contato adicionado com sucesso!" << std::endl;
 }
 
 void	adicionar(Contact &num, PhoneBook &telefone)
@@ -64,8 +139,8 @@ void	adicionar(Contact &num, PhoneBook &telefone)
 	else
 	{
 		telefone.contacto[telefone.j] = num;
-		if (telefone.j == 7)
-			telefone.j = 0;
 		telefone.j++;
-	}
+		if (telefone.j == 8)
+			telefone.j = 0;
+   	}
 }

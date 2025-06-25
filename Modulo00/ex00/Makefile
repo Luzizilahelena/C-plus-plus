@@ -7,6 +7,8 @@ VERDE	:= \033[0;32m
 AMARELO	:= \033[0;33m
 VERMELHO := \033[0;31m
 
+INCLUDES_SRC = Contact.hpp \
+		PhoneBook.hpp
 SRC = megaphone.cpp
 
 OBJ = $(SRC:.cpp=.o)
@@ -18,7 +20,7 @@ all:	$(NAME)
 %.o: %.cpp
 	$(COMP) $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(INCLUDES_SRC)
 	$(COMP) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean:
